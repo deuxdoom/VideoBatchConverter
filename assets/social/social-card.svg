@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="640" viewBox="0 0 1280 640">
+<rect width="1280" height="640" fill="#F5F7FC"/>
+<circle cx="1100" cy="120" r="290" fill="#EEE8FF"/><circle cx="1230" cy="650" r="310" fill="#DDF5EE"/>
+<g transform="translate(88 80) scale(.47)">
+  <rect x="3" y="3" width="122" height="122" rx="29" fill="#EDF1FF"/>
+  <rect x="17" y="22" width="74" height="57" rx="13" fill="#CFC3F5"/>
+  <rect x="27" y="33" width="74" height="57" rx="13" fill="#9CDCCC"/>
+  <rect x="37" y="44" width="74" height="57" rx="13" fill="#4263EB"/>
+  <path d="M66 58.5c-2-1.2-4.5.3-4.5 2.6v23c0 2.3 2.5 3.8 4.5 2.6l19.5-11.5c2-1.2 2-4.1 0-5.3Z" fill="#FFFFFF"/>
+</g>
+<text x="164" y="106" font-family="Noto Sans CJK KR" font-size="15" font-weight="700" letter-spacing="2" fill="#4263EB">VIDEO BATCH CONVERTER</text>
+<text x="164" y="131" font-family="Noto Sans CJK KR" font-size="14" fill="#62708A">3.0.0 · 2026-11-17</text>
+<text x="88" y="240" font-family="Noto Sans CJK KR" font-size="76" font-weight="700" letter-spacing="-2" fill="#202B45">VideoBatch</text>
+<text x="88" y="322" font-family="Noto Sans CJK KR" font-size="76" font-weight="700" letter-spacing="-2" fill="#202B45">Converter</text>
+<text x="92" y="382" font-family="Noto Sans CJK KR" font-size="25" fill="#4C5A73">영상은 선명하게, 보관은 가볍게.</text>
+<rect x="92" y="419" width="105" height="36" rx="18" fill="#DDF5EE"/><text x="113" y="443" font-family="Noto Sans CJK KR" font-size="16" font-weight="600" fill="#187967">아카이빙</text>
+<rect x="208" y="419" width="80" height="36" rx="18" fill="#EEE8FF"/><text x="232" y="443" font-family="Noto Sans CJK KR" font-size="16" font-weight="600" fill="#7653B5">1080p</text>
+<rect x="299" y="419" width="80" height="36" rx="18" fill="#FFF0E2"/><text x="321" y="443" font-family="Noto Sans CJK KR" font-size="16" font-weight="600" fill="#9F541D">720p</text>
+<text x="92" y="546" font-family="Noto Sans CJK KR" font-size="18" fill="#62708A">deuxdoom / VideoBatchConverter</text>
+<rect x="748" y="151" width="368" height="249" rx="24" fill="#DFD6FA" transform="rotate(-9 932 275)"/>
+<rect x="770" y="181" width="368" height="249" rx="24" fill="#B4E8DA" transform="rotate(-3 954 305)"/>
+<rect x="794" y="211" width="368" height="249" rx="24" fill="white" stroke="#DCE3F0"/>
+<rect x="815" y="232" width="326" height="171" rx="14" fill="#4263EB"/>
+<circle cx="977" cy="317" r="39" fill="#FFFFFF" fill-opacity=".15"/>
+<path d="m969 296 29 18c3 2 3 5 0 7l-29 18c-3 2-6 0-6-3v-37c0-3 3-5 6-3Z" fill="white"/>
+<rect x="817" y="425" width="90" height="7" rx="3.5" fill="#CED7EE"/>
+<rect x="1021" y="418" width="120" height="22" rx="11" fill="#DDF5EE"/>
+<text x="1035" y="434" font-family="Noto Sans CJK KR" font-size="12" font-weight="600" fill="#187967">Ready to convert</text>
+<text x="832" y="510" font-family="Noto Sans CJK KR" font-size="17" fill="#4C5A73">Batch in. Better out.</text>
+</svg>

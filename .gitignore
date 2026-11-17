@@ -205,3 +205,12 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+# Local application/runtime and verification files
+.local/
+assets/ffmpeg/
+settings.ini
+
+# Local workspace and handover notes
+/agents.md
+/todo.md

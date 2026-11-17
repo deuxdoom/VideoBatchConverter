@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="900" viewBox="0 0 1440 900">
+<rect width="1440" height="900" fill="#F5F7FC"/>
+<text x="80" y="92" font-family="Noto Sans CJK KR" font-size="17" font-weight="600" letter-spacing="3" fill="#4263EB">VISUAL IDENTITY / 3.0</text>
+<text x="80" y="150" font-family="Noto Sans CJK KR" font-size="38" font-weight="700" fill="#202B45">VideoBatchConverter</text>
+<text x="82" y="192" font-family="Noto Sans CJK KR" font-size="22" fill="#62708A">여러 프레임이 모여, 가벼운 하나의 결과로.</text>
+<rect x="80" y="235" width="1280" height="320" rx="24" fill="white" stroke="#E2E8F2"/>
+<g transform="translate(140 275) scale(1.8)">
+  <rect x="3" y="3" width="122" height="122" rx="29" fill="#EDF1FF"/>
+  <rect x="17" y="22" width="74" height="57" rx="13" fill="#CFC3F5"/>
+  <rect x="27" y="33" width="74" height="57" rx="13" fill="#9CDCCC"/>
+  <rect x="37" y="44" width="74" height="57" rx="13" fill="#4263EB"/>
+  <path d="M66 58.5c-2-1.2-4.5.3-4.5 2.6v23c0 2.3 2.5 3.8 4.5 2.6l19.5-11.5c2-1.2 2-4.1 0-5.3Z" fill="#FFFFFF"/>
+</g>
+<g transform="translate(420 355) scale(.65)">
+  <rect x="3" y="3" width="122" height="122" rx="29" fill="#EDF1FF"/>
+  <rect x="17" y="22" width="74" height="57" rx="13" fill="#CFC3F5"/>
+  <rect x="27" y="33" width="74" height="57" rx="13" fill="#9CDCCC"/>
+  <rect x="37" y="44" width="74" height="57" rx="13" fill="#4263EB"/>
+  <path d="M66 58.5c-2-1.2-4.5.3-4.5 2.6v23c0 2.3 2.5 3.8 4.5 2.6l19.5-11.5c2-1.2 2-4.1 0-5.3Z" fill="#FFFFFF"/>
+</g>
+<text x="525" y="394" font-family="Noto Sans CJK KR" font-size="38" font-weight="700" fill="#202B45">VideoBatchConverter</text>
+<text x="528" y="435" font-family="Noto Sans CJK KR" font-size="22" fill="#62708A">영상은 선명하게, 보관은 가볍게.</text>
+<text x="80" y="623" font-family="Noto Sans CJK KR" font-size="17" font-weight="600" fill="#202B45">LIGHT SURFACES. CLEAR CONTRAST.</text>
+<rect x="80" y="655" width="195" height="100" rx="16" fill="#4263EB"/><text x="80" y="789" font-family="Noto Sans CJK KR" font-size="17" fill="#202B45">Action blue</text><text x="80" y="817" font-family="Noto Sans CJK KR" font-size="15" fill="#62708A">#4263EB</text><rect x="295" y="655" width="195" height="100" rx="16" fill="#DDF5EE"/><text x="295" y="789" font-family="Noto Sans CJK KR" font-size="17" fill="#202B45">Mint</text><text x="295" y="817" font-family="Noto Sans CJK KR" font-size="15" fill="#62708A">#DDF5EE</text><rect x="510" y="655" width="195" height="100" rx="16" fill="#EEE8FF"/><text x="510" y="789" font-family="Noto Sans CJK KR" font-size="17" fill="#202B45">Lavender</text><text x="510" y="817" font-family="Noto Sans CJK KR" font-size="15" fill="#62708A">#EEE8FF</text><rect x="725" y="655" width="195" height="100" rx="16" fill="#FFF0E2"/><text x="725" y="789" font-family="Noto Sans CJK KR" font-size="17" fill="#202B45">Peach</text><text x="725" y="817" font-family="Noto Sans CJK KR" font-size="15" fill="#62708A">#FFF0E2</text><rect x="940" y="655" width="195" height="100" rx="16" fill="#F5F7FC"/><text x="940" y="789" font-family="Noto Sans CJK KR" font-size="17" fill="#202B45">Canvas</text><text x="940" y="817" font-family="Noto Sans CJK KR" font-size="15" fill="#62708A">#F5F7FC</text><rect x="1155" y="655" width="195" height="100" rx="16" fill="#202B45"/><text x="1155" y="789" font-family="Noto Sans CJK KR" font-size="17" fill="#202B45">Ink</text><text x="1155" y="817" font-family="Noto Sans CJK KR" font-size="15" fill="#62708A">#202B45</text>
+</svg>

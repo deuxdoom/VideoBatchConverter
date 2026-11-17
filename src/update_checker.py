@@ -8,7 +8,7 @@ GITHUB_REPO_OWNER = "deuxdoom"
 GITHUB_REPO_NAME = "VideoBatchConverter"
 
 class UpdateCheckWorker(QThread):
-    finished = pyqtSignal(dict)
+    result = pyqtSignal(dict)
     def __init__(self, current_version):
         super().__init__()
         self.current_version = current_version
@@ -24,13 +24,16 @@ class UpdateCheckWorker(QThread):
 
             if latest_version and self.is_newer(latest_version, self.current_version):
                 logging.info(f"새 버전 발견: {latest_version}")
-                self.finished.emit({"update": True, "version": latest_version, "url": release_url})
+                self.result.emit({"update": True, "version": latest_version, "url": release_url})
             else:
                 logging.info("현재 최신 버전을 사용 중입니다.")
-                self.finished.emit({"update": False})
+                self.result.emit({"update": False})
         except requests.RequestException as e:
             logging.warning(f"업데이트 확인 중 네트워크 오류 발생: {e}")
-            self.finished.emit({"update": False})
+            self.result.emit({"update": False})
+        except (ValueError, TypeError):
+            logging.warning("업데이트 응답 형식을 읽지 못했습니다.")
+            self.result.emit({"update": False})
     
     def is_newer(self, latest_v, current_v):
         try:

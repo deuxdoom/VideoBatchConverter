@@ -1,0 +1,99 @@
+{
+  "PyQt6": {
+    "version": "6.11.0",
+    "sources": [
+      {
+        "url": "https://files.pythonhosted.org/packages/8b/47/b25c13eca5bebc6505394d0223e46d7ebf0c57dcac2ed908d7d19b18ab6b/pyqt6-6.11.0.tar.gz",
+        "sha256": "45dd60aa69976de1918b5ced6b4e7b6a25abd2a919ecef5fd5826ecc76718889"
+      }
+    ]
+  },
+  "PyQt6-sip": {
+    "version": "13.12.0",
+    "sources": [
+      {
+        "url": "https://files.pythonhosted.org/packages/d1/23/16c583dbb6b53e0494dfcf7d1a44778c82e324edda62326727b37f1a5b34/pyqt6_sip-13.12.0.tar.gz",
+        "sha256": "a7ad45c1e3cec3a2473d37ea9870b6c3baeccc560298623c8eb59265714c06e2"
+      }
+    ]
+  },
+  "PyInstaller": {
+    "version": "6.22.0",
+    "sources": [
+      {
+        "url": "https://files.pythonhosted.org/packages/05/03/669d06735cf57d7e2e5dfc3c2e1643554b34c559eff21449c58172ca0335/pyinstaller-6.22.0.tar.gz",
+        "sha256": "8b0166fff4583b374bbe7fa044bf03ddc33cab0f792a665807d96048e63f060e"
+      }
+    ]
+  },
+  "requests": {
+    "version": "2.34.2",
+    "sources": [
+      {
+        "url": "https://files.pythonhosted.org/packages/ac/c3/e2a2b89f2d3e2179abd6d00ebd70bff6273f37fb3e0cc209f48b39d00cbf/requests-2.34.2.tar.gz",
+        "sha256": "f288924cae4e29463698d6d60bc6a4da69c89185ad1e0bcc4104f584e960b9ed"
+      }
+    ]
+  },
+  "urllib3": {
+    "version": "2.7.0",
+    "sources": [
+      {
+        "url": "https://files.pythonhosted.org/packages/53/0c/06f8b233b8fd13b9e5ee11424ef85419ba0d8ba0b3138bf360be2ff56953/urllib3-2.7.0.tar.gz",
+        "sha256": "231e0ec3b63ceb14667c67be60f2f2c40a518cb38b03af60abc813da26505f4c"
+      }
+    ]
+  },
+  "charset-normalizer": {
+    "version": "3.4.9",
+    "sources": [
+      {
+        "url": "https://files.pythonhosted.org/packages/bd/2a/23f34ec9d04624958e137efdc394888716353190e75f25dd22c7a2c7a8aa/charset_normalizer-3.4.9.tar.gz",
+        "sha256": "673611bbd43f0810bec0b0f028ddeaaa501190339cac411f347ac76917c3ae7b"
+      }
+    ]
+  },
+  "certifi": {
+    "version": "2026.7.22",
+    "sources": [
+      {
+        "url": "https://files.pythonhosted.org/packages/a3/c2/24167ea9858356b47a87a50d39908bfdb72ceeefe0041586e704e5376b3a/certifi-2026.7.22.tar.gz",
+        "sha256": "741e2c3b351ddf169a738da9f2c048608ff7f2c5cc02f1ebc6b118bb090d5d55"
+      }
+    ]
+  },
+  "idna": {
+    "version": "3.18",
+    "sources": [
+      {
+        "url": "https://files.pythonhosted.org/packages/cd/63/9496c57188a2ee585e0f1db071d75089a11e98aa86eb99d9d7618fc1edce/idna-3.18.tar.gz",
+        "sha256": "ffb385a7e039654cef1ab9ef32c6fafe283c0c0467bba1d9029738ce4a14a848"
+      }
+    ]
+  },
+  "setuptools": {
+    "version": "84.0.0",
+    "sources": [
+      {
+        "url": "https://files.pythonhosted.org/packages/6d/44/f5da03a8ef95d369145c5bb53050e7877c9f3d312e128605fd9504829143/setuptools-84.0.0.tar.gz",
+        "sha256": "f4695c21257f0d9b537ec2692c941d02ee143b7cc1276941349a546573b2ef73"
+      }
+    ]
+  },
+  "Qt": {
+    "url": "https://download.qt.io/archive/qt/6.11/6.11.1/single/qt-everywhere-src-6.11.1.tar.xz",
+    "version": "6.11.1"
+  },
+  "Python": {
+    "url": "https://www.python.org/ftp/python/3.14.7/Python-3.14.7.tar.xz",
+    "version": "3.14.7"
+  },
+  "PyQt6-Qt6": {
+    "version": "6.11.1",
+    "sources": [
+      {
+        "url": "https://download.qt.io/archive/qt/6.11/6.11.1/single/qt-everywhere-src-6.11.1.tar.xz"
+      }
+    ]
+  }
+}

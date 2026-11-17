@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#F5F7FC">
+  <title>VideoBatchConverter 3.0.0 — 영상은 선명하게, 보관은 가볍게.</title>
+  <meta name="description" content="여러 영상의 코덱을 통일하고, 화질 우선의 HEVC 아카이빙으로 보관 용량을 줄이세요. Windows 동영상 일괄 변환기 VideoBatchConverter 3.0.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ko_KR">
+  <meta property="og:title" content="VideoBatchConverter — 영상은 선명하게, 보관은 가볍게.">
+  <meta property="og:description" content="파일 추가, 프리셋 선택, 한 번에 변환. 밝고 간결해진 Windows 동영상 변환기 3.0.">
+  <meta property="og:image" content="https://deuxdoom.github.io/VideoBatchConverter/assets/social/social-card.png">
+  <meta property="og:image:width" content="1280">
+  <meta property="og:image:height" content="640">
+  <meta property="og:image:alt" content="VideoBatchConverter 3.0의 세 프레임 로고와 영상은 선명하게, 보관은 가볍게 슬로건">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="VideoBatchConverter 3.0.0">
+  <meta name="twitter:description" content="H.264 영상을 H.265 · AV1 · VP9로, 여러 파일을 한 번에.">
+  <meta name="twitter:image" content="https://deuxdoom.github.io/VideoBatchConverter/assets/social/social-card.png">
+  <link rel="icon" href="assets/brand/app-icon-32.png" type="image/png">
+  <link rel="apple-touch-icon" href="assets/brand/app-icon-256.png">
+  <link rel="preload" href="assets/fonts/web/NotoSansCJKkr-Regular.woff2" as="font" type="font/woff2" crossorigin>
+  <style>
+    @font-face{font-family:"Noto Sans CJK KR";src:url("assets/fonts/web/NotoSansCJKkr-Regular.woff2") format("woff2");font-style:normal;font-weight:400;font-display:swap}
+    @font-face{font-family:"Noto Sans CJK KR";src:url("assets/fonts/web/NotoSansCJKkr-Bold.woff2") format("woff2");font-style:normal;font-weight:700;font-display:swap}
+    :root{--blue:#4263eb;--ink:#202b45;--muted:#62708a;--bg:#f5f7fc;--line:#e2e8f2;--mint:#ddf5ee;--teal:#187967;--lavender:#eee8ff;--purple:#7653b5;--peach:#fff0e2;--orange:#9f541d}
+    *{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:90px}body{margin:0;background:var(--bg);color:var(--ink);font-family:"Noto Sans CJK KR",sans-serif;font-stretch:normal;font-synthesis:none;text-rendering:optimizeLegibility;line-height:1.7;-webkit-font-smoothing:antialiased}a{color:inherit;text-decoration:none}button{font:inherit;cursor:pointer}img{display:block;max-width:100%}button,a{-webkit-tap-highlight-color:transparent}:focus-visible{outline:3px solid var(--blue);outline-offset:5px}::selection{background:#dae2ff}.wrap{max-width:1200px;margin:auto;padding:0 32px}.skip{position:fixed;left:20px;top:-70px;padding:12px 18px;background:var(--ink);color:white;z-index:10}.skip:focus{top:12px}
+    header{position:sticky;top:0;z-index:5;background:#f5f7fcf5;border-bottom:1px solid var(--line);backdrop-filter:blur(12px)}.nav{height:80px;display:flex;align-items:center;gap:28px}.brand{display:flex;gap:11px;align-items:center;font-weight:750;font-size:17px;letter-spacing:-.4px}.brand img{width:38px;height:38px}.nav-links{display:flex;gap:26px;margin-left:auto;font-size:14px;color:var(--muted)}.nav-links a:hover,footer a:hover{color:var(--blue)}.nav .button{margin-left:auto}.nav-links+.button{margin-left:0}.button{display:inline-flex;align-items:center;justify-content:center;gap:10px;border:1px solid #d7e0f0;border-radius:10px;padding:12px 21px;background:white;font-size:14px;font-weight:650;transition:background .18s,transform .18s}.button:hover{background:#edf1ff;transform:translateY(-1px)}.button.primary{background:var(--blue);border-color:var(--blue);color:white}.button.primary:hover{background:#3553d0}.arrow{font-size:20px;line-height:1}
+    .hero{padding:82px 0 76px;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:32px}.eyebrow{display:flex;align-items:center;gap:10px;font-size:12px;font-weight:700;letter-spacing:1.7px;color:var(--blue);text-transform:uppercase}.tiny-dot{width:7px;height:7px;border-radius:50%;background:var(--teal)}h1{font-size:58px;letter-spacing:-1px;line-height:1.25;margin:24px 0}h1 span{color:var(--blue)}.hero-copy{font-size:17px;line-height:1.9;color:var(--muted);max-width:470px}.hero-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:28px}.release-note{font-size:12px;color:var(--muted);margin:16px 0 0}.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:30px}.tag{font-size:12px;border-radius:20px;padding:5px 12px;background:white;color:#4c5a73;border:1px solid var(--line)}
+    .hero-art{height:410px;position:relative;display:flex;align-items:center;justify-content:center}.art-halo{position:absolute;width:340px;height:340px;border-radius:50%;background:var(--lavender);right:18px;top:10px}.art-halo:after{content:"";position:absolute;width:200px;height:200px;background:var(--mint);border-radius:50%;left:-120px;top:180px}.frame{position:absolute;border-radius:24px;width:290px;height:205px;left:calc(50% - 135px);top:80px}.frame.back{background:#d9d0f7;transform:rotate(-12deg) translate(-14px,-18px)}.frame.mid{background:#afe5d6;transform:rotate(-5deg) translate(0,4px)}.frame.front{background:white;border:1px solid var(--line);box-shadow:0 20px 45px #253d8110;padding:17px;transform:rotate(3deg) translate(18px,25px)}.video-surface{height:143px;border-radius:13px;background:var(--blue);display:flex;align-items:center;justify-content:center}.play{width:0;height:0;border-top:18px solid transparent;border-bottom:18px solid transparent;border-left:29px solid white;margin-left:8px}.frame-track{display:flex;align-items:center;justify-content:space-between;margin-top:12px}.frame-track i{width:65px;height:5px;background:#d4ddf2;border-radius:3px}.frame-track span{padding:2px 9px;border-radius:20px;background:var(--mint);color:var(--teal);font-size:9px;font-weight:700}.floating{position:absolute;border:1px solid var(--line);background:white;border-radius:12px;padding:11px 17px;font-size:13px;font-weight:650;box-shadow:0 8px 24px #253d8109}.floating.input{top:26px;left:8px;transform:rotate(-4deg)}.floating.output{right:0;bottom:43px;transform:rotate(3deg);color:var(--teal)}.floating small{display:block;font-size:10px;font-weight:500;color:var(--muted);margin-top:2px}.art-caption{position:absolute;left:24px;bottom:0;font-size:11px;color:var(--muted);letter-spacing:1px}
+    .proof{display:flex;justify-content:space-between;gap:24px;padding:24px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}.proof-item{display:flex;align-items:center;gap:12px}.proof-item img{width:24px;height:24px;opacity:.75}.proof-item strong{font-size:14px;font-weight:650}.proof-item small{display:block;font-size:12px;color:var(--muted)}
+    section{padding:88px 0}.section-kicker{font-size:11px;color:var(--blue);font-weight:700;letter-spacing:2px}.section-heading{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:30px}h2{font-size:34px;line-height:1.4;letter-spacing:-1.5px;margin:12px 0 0}.section-heading p{max-width:430px;color:var(--muted);font-size:14px;margin:0}.screen-stage{background:#eaf0ff;border-radius:22px;padding:30px 30px 0;overflow:hidden;border:1px solid #dde5f8}.screen-stage img{border-radius:12px 12px 0 0;box-shadow:0 5px 32px #32477c1a;width:100%;height:auto}.image-note{color:var(--muted);font-size:11px;text-align:right;margin:12px 0 0}.workflow{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-top:42px}.step-number{width:34px;height:34px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;background:var(--mint);color:var(--teal)}.step:nth-child(2) .step-number{background:var(--lavender);color:var(--purple)}.step:nth-child(3) .step-number{background:var(--peach);color:var(--orange)}h3{font-size:18px;letter-spacing:-.3px;margin:17px 0 10px}.step p{color:var(--muted);font-size:14px;margin:0;line-height:1.9}.key{display:inline-block;background:white;border:1px solid var(--line);border-bottom-width:2px;border-radius:5px;padding:0 6px;font-size:11px;color:#4c5a73}
+    .profile-section{background:white;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}.profile-section .section-heading{align-items:start}.profile-panel{display:grid;grid-template-columns:280px 1fr;border:1px solid var(--line);border-radius:18px;overflow:hidden}.profile-tabs{background:#f8faff;padding:16px;display:flex;flex-direction:column;gap:7px}.profile-tab{background:transparent;border:1px solid transparent;border-radius:9px;text-align:left;padding:12px 15px;font-size:14px;color:#4c5a73;display:flex;justify-content:space-between;align-items:center}.profile-tab:hover{background:#edf1ff}.profile-tab[aria-pressed=true]{border-color:#afbef4;color:#304fc8;background:#edf1ff;font-weight:650}.profile-tab span{font-size:12px;opacity:.7}.profile-detail{padding:30px 36px}.profile-top{display:flex;align-items:center;justify-content:space-between;gap:20px}.profile-top h3{margin:0;font-size:23px}.codec-tag{background:var(--mint);color:var(--teal);font-size:12px;padding:6px 12px;border-radius:20px;font-weight:700}.profile-desc{color:var(--muted);font-size:14px;margin:14px 0 24px;max-width:580px}.profile-values{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin:0}.profile-values div{min-width:0}.profile-values dt{font-size:11px;color:var(--muted);margin-bottom:4px}.profile-values dd{font-size:16px;font-weight:650;margin:0}.output-example{padding:13px 16px;background:#f5f7fc;border-radius:9px;margin-top:26px;font-size:13px;overflow-wrap:anywhere}.output-example span{color:var(--muted)}.profile-footnote{font-size:12px;color:var(--muted);margin:16px 0 0}
+    .detail-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:70px}.detail-intro p{color:var(--muted);font-size:15px;line-height:1.9}.assurance{border-left:3px solid #9cdccc;padding:4px 0 4px 20px;margin-top:30px}.assurance strong{font-size:14px}.assurance p{font-size:13px;margin:6px 0}.faq details{border-top:1px solid var(--line);padding:20px 0}.faq details:last-child{border-bottom:1px solid var(--line)}.faq summary{cursor:pointer;list-style:none;font-weight:650;font-size:15px;display:flex;justify-content:space-between;gap:20px}.faq summary:after{content:"+";color:var(--blue);font-size:22px;line-height:1}.faq details[open] summary:after{content:"−"}.faq details p{color:var(--muted);font-size:14px;line-height:1.9;margin:13px 22px 0 0}.faq a{text-decoration:underline;color:#304fc8}
+    .start-box{background:#edf1ff;border:1px solid #d9e2fb;border-radius:22px;display:flex;align-items:center;justify-content:space-between;gap:30px;padding:38px 42px;margin-bottom:70px}.start-brand{display:flex;align-items:center;gap:22px}.start-brand img{width:72px;height:72px}.start-box h2{font-size:27px;margin:0}.start-box p{color:var(--muted);font-size:13px;margin:8px 0 0}.start-links{display:flex;gap:10px;flex-shrink:0}footer{border-top:1px solid var(--line);padding:25px 0 32px;font-size:12px;color:var(--muted)}.footer-row{display:flex;justify-content:space-between;gap:20px}footer nav{display:flex;gap:22px}
+    @media(min-width:1500px){.hero{padding:100px 0 90px}.hero-art{transform:scale(1.05)}}
+    @media(max-width:1000px){h1{font-size:48px}.wrap{padding:0 24px}.hero{gap:10px;padding:60px 0}.hero-art{transform:scale(.9)}.profile-panel{grid-template-columns:230px 1fr}.detail-grid{gap:36px}.start-box{padding:30px;flex-wrap:wrap}.start-links{margin-left:94px}.nav-links{gap:16px}.proof{gap:18px}.proof-item{gap:8px}}
+    @media(max-width:720px){.wrap{padding:0 20px}.nav{height:68px;gap:12px}.brand{font-size:14px;gap:7px}.brand img{width:32px;height:32px}.nav-links{display:none}.nav .button{margin-left:auto;padding:8px 12px;font-size:12px}.hero{grid-template-columns:1fr;padding:44px 0 35px;gap:24px}h1{font-size:clamp(36px,10vw,43px);letter-spacing:-.5px;margin:20px 0}.hero-copy{font-size:15px}.hero-art{height:350px;width:100%;max-width:480px;justify-self:center;transform:scale(.92)}.eyebrow{font-size:10px;letter-spacing:1.1px}.tags{margin-top:22px}.floating.input{left:0}.floating.output{right:0;bottom:20px}.art-caption{bottom:-10px}.proof{display:grid;grid-template-columns:1fr;gap:16px;padding:23px 0}.proof-item small{display:inline;margin-left:8px}.section-heading{display:block}.section-heading p{margin-top:16px}section{padding:58px 0}h2{font-size:28px;letter-spacing:-1px}.screen-stage{padding:12px 12px 0;border-radius:14px}.screen-stage img{border-radius:7px 7px 0 0}.workflow{grid-template-columns:1fr;gap:28px;margin-top:32px}.step{display:grid;grid-template-columns:34px 1fr;column-gap:14px}.step h3{margin:2px 0 8px}.step p{grid-column:2}.profile-panel{grid-template-columns:1fr}.profile-tabs{flex-direction:row;flex-wrap:wrap;padding:12px;gap:5px}.profile-tab{font-size:12px;padding:8px 10px}.profile-tab span{display:none}.profile-detail{padding:24px 20px}.profile-top{gap:10px}.profile-top h3{font-size:21px}.profile-values{gap:18px 10px;grid-template-columns:repeat(2,1fr)}.profile-values dd{font-size:14px}.detail-grid{grid-template-columns:1fr;gap:30px}.assurance{margin-top:20px}.start-box{padding:25px 20px;border-radius:16px;margin-bottom:44px}.start-brand{gap:15px}.start-brand img{width:54px;height:54px}.start-box h2{font-size:22px}.start-links{margin-left:0;flex-wrap:wrap}.start-links .button{padding:10px 14px}.footer-row{flex-direction:column;gap:14px}footer nav{flex-wrap:wrap;gap:16px}.image-note{text-align:left}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.button{transition:none}.button:hover{transform:none}}
+
+    .language-switch{display:inline-flex;align-items:center;flex-shrink:0;gap:2px;padding:3px;border:1px solid #d6dff8;border-radius:22px;background:#edf1ff;margin-left:auto}
+    .language-switch button{border:1px solid transparent;border-radius:18px;padding:5px 12px;line-height:1.5;font-size:12px;font-weight:700;color:#53617c;background:transparent;min-height:30px}
+    .language-switch button:hover{background:#e1e8ff;color:#304fc8}.language-switch button[aria-pressed=true]{background:var(--blue);color:white}
+    .language-switch button:focus-visible{outline-offset:2px}.nav-links+.language-switch{margin-left:0}.nav .header-github{margin-left:0}
+    html[lang=en] .profile-top{flex-wrap:wrap}html[lang=en] h2{letter-spacing:-.6px}html[lang=en] .start-brand h2{font-size:25px}
+    @media(max-width:900px){.nav-links{display:none}.nav-links+.language-switch{margin-left:auto}}
+    @media(max-width:600px){.nav .header-github{display:none}.nav{gap:10px}.language-switch button{padding:4px 10px}.start-links{max-width:100%;flex-shrink:1}html[lang=en] .hero-art{font-size:12px}}
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">본문으로 바로가기</a>
+  <header>
+    <div class="wrap nav">
+      <a class="brand" href="#main" aria-label="VideoBatchConverter 처음으로"><img src="assets/brand/mark.svg" alt="" width="38" height="38">VideoBatchConverter</a>
+      <nav class="nav-links" aria-label="주요 메뉴"><a href="#workspace">사용 방법</a><a href="#presets">프리셋</a><a href="#questions">궁금한 점</a></nav>
+      <div class="language-switch" role="group" aria-label="표시 언어"><button type="button" data-language="ko" lang="ko" aria-label="한국어로 표시" aria-pressed="true">한국어</button><button type="button" data-language="en" lang="en" aria-label="Display in English" aria-pressed="false">EN</button></div>
+      <a class="button header-github" href="https://github.com/deuxdoom/VideoBatchConverter">GitHub <span aria-hidden="true">↗</span></a>
+    </div>
+  </header>
+  <main id="main">
+    <div class="wrap">
+      <div class="hero">
+        <div>
+          <div class="eyebrow"><span class="tiny-dot" aria-hidden="true"></span>WINDOWS VIDEO CONVERTER · 3.0.0</div>
+          <h1>영상은 선명하게,<br>보관은 <span>가볍게.</span></h1>
+          <p class="hero-copy">서로 다른 코덱, 4K부터 작은 영상까지.<br>하나의 형식으로 통일하거나, 화질을 우선하며<br>고효율 코덱으로 보관 용량을 줄이세요.</p>
+          <div class="hero-actions"><a class="button primary" href="https://github.com/deuxdoom/VideoBatchConverter/releases/download/v3.0.0/VideoBatchConverter-3.0.0-windows-x64.zip">Windows 64비트 다운로드 <span class="arrow" aria-hidden="true">↗</span></a><a class="button" href="#workspace">프로그램 살펴보기 <span aria-hidden="true">↓</span></a></div>
+          <p class="release-note">3.0.0 정식 배포 · 2026-11-17 · Windows 64비트 · 첫 실행 시 FFmpeg 자동 설치</p>
+          <div class="tags"><span class="tag">내 PC에서 변환</span><span class="tag">원본 유지</span><span class="tag">NVIDIA NVENC + CPU</span></div>
+        </div>
+        <div class="hero-art" role="img" aria-label="여러 영상 프레임이 겹쳐 하나의 변환 결과가 되는 브랜드 일러스트">
+          <div class="art-halo"></div><div class="frame back"></div><div class="frame mid"></div>
+          <div class="frame front"><div class="video-surface"><div class="play"></div></div><div class="frame-track"><i></i><span>READY TO CONVERT</span></div></div>
+          <div class="floating input">여행.mp4<small>여러 코덱 · 원본 영상</small></div>
+          <div class="floating output">여행_archive.mp4<small>새로운 파일로 저장</small></div>
+          <div class="art-caption">BATCH IN. BETTER OUT.</div>
+        </div>
+      </div>
+      <div class="proof" aria-label="핵심 기능">
+        <div class="proof-item"><img src="assets/icons/folder-add.svg" alt="" width="24" height="24"><div><strong>폴더째 간편하게</strong><small>여러 코덱 · 하위 폴더까지 분석</small></div></div>
+        <div class="proof-item"><img src="assets/icons/settings.svg" alt="" width="24" height="24"><div><strong>목적에 맞는 프리셋</strong><small>보관부터 업로드까지</small></div></div>
+        <div class="proof-item"><img src="assets/icons/checkmark.svg" alt="" width="24" height="24"><div><strong>원본과 결과를 안전하게</strong><small>원본 유지 · 기존 결과 건너뛰기</small></div></div>
+      </div>
+      <section id="workspace">
+        <div class="section-heading"><div><div class="section-kicker">A CLEARER WORKSPACE</div><h2>추가하고, 고르고, 한 번에.</h2></div><p>코덱·비트레이트·길이를 목록에서 바로 확인하세요.<br>긴 설정 영역과 하단 진행 표시로 대량 작업을 확인하세요.</p></div>
+        <div class="screen-stage"><img src="assets/screenshots/workspace.png" alt="VideoBatchConverter 3.0 실제 화면. 왼쪽의 코덱·비트레이트·길이 목록, 오른쪽의 긴 설정 영역과 하단 진행 표시." width="1240" height="850" loading="lazy"></div>
+        <p class="image-note">실제 프로그램 화면 · FFmpeg으로 생성한 예제 영상 사용</p>
+        <div class="workflow">
+          <div class="step"><div class="step-number">01</div><h3>변환할 영상을 모으세요</h3><p>빈 목록을 클릭해 파일·폴더를 함께 고르거나 끌어 놓으세요. 하위 폴더까지 영상의 코덱·해상도를 분석해 담습니다. <span class="key">Ctrl+O</span>로 파일을 추가할 수도 있습니다.</p></div>
+          <div class="step"><div class="step-number">02</div><h3>나에게 맞는 설정을 고르세요</h3><p>프리셋과 품질을 고르면 목록에 영상별 예상 시간이 표시됩니다. 고급 옵션은 우측 상단 설정 창에서 조정하고, 내 프리셋으로 저장해 다시 쓸 수 있습니다.</p></div>
+          <div class="step"><div class="step-number">03</div><h3>결과를 확인하세요</h3><p>시작 전 샘플로 예상 용량을 확인합니다. 변환 후에는 완료·실패·결과 제외와 크기를 목록에서 확인하고, 완료 항목 따라가기로 최근 결과를 볼 수 있습니다.</p></div>
+        </div>
+      </section>
+    </div>
+    <section id="presets" class="profile-section">
+      <div class="wrap">
+        <div class="section-heading"><div><div class="section-kicker">START WITH YOUR PURPOSE</div><h2>세 가지로 정리한 변환 목적.</h2></div><p>프리셋을 눌러 설정을 비교해 보세요.<br>내 설정은 사용자 프리셋으로 저장해 다시 사용할 수 있습니다.</p></div>
+        <div class="profile-panel">
+          <div class="profile-tabs" role="group" aria-label="변환 프리셋 비교">
+            <button class="profile-tab" type="button" data-profile="archive" aria-pressed="true" aria-controls="profile-detail">아카이빙 <span>HEVC</span></button>
+            <button class="profile-tab" type="button" data-profile="fullhd" aria-pressed="false" aria-controls="profile-detail">1080p <span>H.264 · MP4</span></button>
+            <button class="profile-tab" type="button" data-profile="hd720" aria-pressed="false" aria-controls="profile-detail">720p <span>H.264 · MP4</span></button>
+          </div>
+          <div id="profile-detail" class="profile-detail" aria-live="polite" aria-atomic="true">
+            <div class="profile-top"><h3 id="profile-title">원본 해상도로, 더 가볍게.</h3><span class="codec-tag" id="profile-codec">H.265 · GPU</span></div>
+            <p class="profile-desc" id="profile-desc">4K부터 작은 영상까지 원본 해상도와 오디오를 유지합니다. 원본 비디오 비트레이트의 80%를 VBR 목표로 삼고 더 작아진 결과만 HEVC MP4로 보관합니다.</p>
+            <dl class="profile-values"><div><dt>최대 해상도</dt><dd id="profile-resolution">원본 유지</dd></div><div><dt>품질 / 비트레이트</dt><dd id="profile-quality">VBR · 원본 비디오의 80%</dd></div><div><dt>출력 형식</dt><dd id="profile-format">MP4</dd></div><div><dt>오디오</dt><dd id="profile-audio">원본 복사</dd></div><div><dt>동시 작업</dt><dd>2개</dd></div><div><dt>저장 위치</dt><dd>원본과 같은 폴더</dd></div></dl>
+            <div class="output-example"><span>여행.mp4</span> <span aria-hidden="true">→</span> <strong id="profile-output">여행_archive.mp4</strong></div>
+          </div>
+        </div>
+        <p class="profile-footnote">GPU 인코딩에는 해당 코덱을 지원하는 NVIDIA GPU가 필요합니다. 기기·플레이어의 재생 호환성과 원본 오디오 형식을 확인하세요. 출력에는 첫 번째 영상·오디오 트랙을 포함합니다.</p>
+        <noscript><p class="profile-footnote">프리셋 비교를 전환하려면 JavaScript를 켜거나 <a href="https://github.com/deuxdoom/VideoBatchConverter#프리셋">README의 전체 설정표</a>를 확인하세요.</p></noscript>
+      </div>
+    </section>
+    <div class="wrap">
+      <section id="questions" class="detail-grid">
+        <div class="detail-intro"><div class="section-kicker">A LITTLE MORE CLARITY</div><h2>시작하기 전에,<br>이것만 확인하세요.</h2><p>처음에는 짧은 영상 한 개로 설정을 확인해 보세요. 필요한 만큼 조정한 뒤 나머지 영상을 함께 처리하면 됩니다.</p><div class="assurance"><strong>변환은 내 PC 안에서.</strong><p>영상을 서버로 업로드하지 않습니다.<br>업데이트 확인과 FFmpeg 최초 설치에 인터넷을 사용합니다.</p></div></div>
+        <div class="faq">
+          <details open><summary>어떤 파일을 변환할 수 있나요?</summary><p>MP4·MKV·AVI·MOV 등 여러 영상의 실제 코덱·해상도·재생 시간을 분석합니다. 기본 출력은 보관용 HEVC와 범용 H.264이며, AV1·VP9 같은 다른 코덱도 사용자 설정에서 선택할 수 있습니다.</p></details>
+          <details><summary>NVIDIA GPU가 없어도 사용할 수 있나요?</summary><p>네. 비디오 코덱에서 CPU 항목을 선택하세요. GPU 항목은 NVIDIA NVENC를 사용하며 AV1 등 각 코덱의 지원 여부는 GPU 세대와 드라이버에 따라 다릅니다. CPU 인코딩은 영상과 설정에 따라 오래 걸릴 수 있습니다.</p></details>
+          <details><summary>원본은 어떻게 되고, 결과는 어디에 저장되나요?</summary><p>원본을 유지하고 같은 폴더에 접미사를 붙인 새 파일로 저장합니다. 예를 들어 여행.mp4는 여행_archive.mp4가 됩니다. 기존 결과 파일이 있으면 덮어쓰지 않고 건너뜁니다.</p></details>
+          <details><summary>용량은 얼마나 줄어드나요?</summary><p>원본과 코덱·품질 설정에 따라 다릅니다. 사전 샘플로 추정하고, 원본 이상 크기의 아카이빙 결과는 제외 이유와 크기를 표시합니다. 저장된 결과가 없으면 별도로 알립니다. 원본은 자동 삭제하지 않으며 손실 압축에서 같은 화질을 보장할 수는 없습니다.</p></details>
+          <details><summary>예상 용량이 크면 어떻게 하나요?</summary><p>첫 주의 파일에서 멈춰 설정 조정·주의 파일 제외·계속 진행을 선택합니다. CQ/CRF는 숫자를 높이고 비트레이트는 낮추면 용량을 줄이는 방향입니다. 추정값과 실제 크기는 다를 수 있으며 사전 확인은 고급 설정에서 끌 수 있습니다.</p></details>
+          <details><summary>예상 시간은 어떻게 계산하나요?</summary><p>파일 추가·인코딩 설정 변경 시 짧은 실제 샘플로 각 영상의 변환 시간을 추정합니다. 합계는 개별 시간을 더한 값이며 동시 작업 수·PC 부하에 따라 실제 완료 시간은 달라집니다.</p></details>
+          <details><summary>완료 알림과 종료는 어떻게 동작하나요?</summary><p>배치가 끝나면 짧은 완료음을 한 번 재생하며 설정 창의 일반에서 끌 수 있습니다. 종료할 때는 간단한 확인창을 표시하고, 진행 중인 작업이 있으면 정리한 뒤 닫습니다.</p></details>
+          <details><summary>중지하거나 변환이 실패하면 어떻게 하나요?</summary><p>정상 중지 시 실행·대기 작업을 취소하고 미완성 결과를 정리합니다. 완료한 결과는 유지합니다. 실패한 파일은 작업 기록이 자동으로 열리므로 GPU·오디오 설정이나 저장 공간을 확인한 뒤 다시 시도하세요.</p></details>
+          <details><summary>내 설정을 프리셋으로 저장할 수 있나요?</summary><p>앱의 프리셋 옆 저장 버튼을 누르고 이름을 입력하세요. 내 프리셋은 재실행 후에도 유지되며 덮어쓰기와 삭제도 할 수 있습니다. 파일 목록이나 폴더 경로는 저장하지 않습니다.</p></details>
+          <details><summary>3.0.0은 어떻게 실행하나요?</summary><p>Windows 64비트 ZIP을 내려받아 폴더 전체를 압축 해제하고 VideoBatchConverter.exe를 실행하세요. EXE와 bin 폴더를 함께 유지하고 첫 실행 시 FFmpeg 자동 설치를 완료하세요. <a href="https://github.com/deuxdoom/VideoBatchConverter#설치와-실행">README의 설치·소스 실행 안내</a>를 참고하세요. 정식 배포 파일은 <a href="https://github.com/deuxdoom/VideoBatchConverter/releases/download/v3.0.0/VideoBatchConverter-3.0.0-windows-x64.zip">GitHub Releases</a>에서 내려받을 수 있습니다.</p></details>
+        </div>
+      </section>
+      <div class="start-box"><div class="start-brand"><img src="assets/brand/mark.svg" alt="" width="72" height="72"><div><h2>소중한 영상에, 더 많은 여유를.</h2><p>VideoBatchConverter · Windows · MIT License</p></div></div><div class="start-links"><a class="button primary" href="https://github.com/deuxdoom/VideoBatchConverter/releases/download/v3.0.0/VideoBatchConverter-3.0.0-windows-x64.zip">Windows 64비트 다운로드 ↗</a><a class="button" href="https://github.com/deuxdoom/VideoBatchConverter">저장소 둘러보기</a></div></div>
+    </div>
+  </main>
+  <footer><div class="wrap footer-row"><span>© deuxdoom · VideoBatchConverter 3.0.0</span><nav aria-label="추가 정보"><a href="https://github.com/deuxdoom/VideoBatchConverter/blob/main/changelog.md">변경 기록</a><a href="https://github.com/deuxdoom/VideoBatchConverter/issues">문제 제보</a><a href="https://github.com/deuxdoom/VideoBatchConverter/blob/main/LICENSE">MIT License</a><a href="https://github.com/microsoft/fluentui-system-icons">Fluent System Icons</a></nav></div></footer>
+  <script src="assets/site/language.js"></script>
+</body>
+</html>

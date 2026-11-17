@@ -1,91 +1,61 @@
-# src/about_dialog.py
-import base64
-import logging
-from PyQt6.QtWidgets import (QDialog, QVBoxLayout, QHBoxLayout, QLabel, QTextEdit, 
-                             QPushButton, QDialogButtonBox, QStyle)
-from PyQt6.QtGui import QPixmap, QDesktopServices, QIcon
-from PyQt6.QtCore import QUrl, Qt
+"""Small, readable product information using the shared visual identity."""
 
-# --- 임포트 방식 수정 및 예외 처리 ---
-try:
-    from .icon import MAIN_ICON
-except ImportError:
-    MAIN_ICON = None
-    logging.warning("'src/icon.py' 또는 'MAIN_ICON'을 찾을 수 없습니다. 아이콘이 표시되지 않습니다.")
+from PyQt6.QtCore import Qt, QUrl
+from PyQt6.QtGui import QDesktopServices
+from PyQt6.QtWidgets import QDialogButtonBox, QHBoxLayout, QVBoxLayout, QWidget
+
+from .fluent_icons import app_icon, fluent_icon
+from .localized_widgets import QDialog, QLabel, QPushButton
+
+
+class AboutContent(QWidget):
+    def __init__(self, version, parent=None):
+        super().__init__(parent)
+        layout = QVBoxLayout(self)
+        layout.setContentsMargins(0, 0, 0, 0)
+        layout.setSpacing(18)
+        header = QHBoxLayout()
+        logo = QLabel()
+        logo.setPixmap(app_icon().pixmap(76, 76))
+        header.addWidget(logo)
+        titles = QVBoxLayout()
+        title = QLabel('VideoBatchConverter')
+        title.setObjectName('pageTitle')
+        titles.addWidget(title)
+        titles.addWidget(QLabel(f'{version}  ·  영상은 선명하게, 보관은 가볍게.'))
+        header.addLayout(titles)
+        layout.addLayout(header)
+        description = QLabel('여러 영상의 코덱을 통일하고, 고효율 코덱으로 보관 용량을 줄입니다.\n'
+                             '원본 보호, 목적별 프리셋, NVIDIA NVENC와 CPU 인코딩을 지원합니다.\n\n'
+                             '변환은 내 PC에서 진행됩니다. 업데이트 확인과 FFmpeg 최초 설치에는\n'
+                             '인터넷을 사용합니다. 코덱과 기기별 재생 호환성은 다를 수 있습니다.\n\n'
+                             'MIT License · deuxdoom\n'
+                             'Fluent System Icons © Microsoft Corporation (MIT)\n'
+                             'FFmpeg is a trademark of Fabrice Bellard.')
+        description.setWordWrap(True)
+        description.setObjectName('muted')
+        layout.addWidget(description)
+        sound_credit = QLabel('완료음: Kenney Interface Sounds (CC0)')
+        sound_credit.setObjectName('muted')
+        layout.addWidget(sound_credit)
+        row = QHBoxLayout()
+        github = QPushButton('GitHub 저장소')
+        github.setIcon(fluent_icon('folder', '#4263EB'))
+        github.clicked.connect(lambda: QDesktopServices.openUrl(QUrl('https://github.com/deuxdoom/VideoBatchConverter')))
+        row.addWidget(github)
+        row.addStretch()
+        layout.addLayout(row)
+
 
 class AboutDialog(QDialog):
     def __init__(self, version, parent=None):
         super().__init__(parent)
-        self.setWindowTitle("VideoBatchConverter 정보")
-
-        main_icon = QIcon()
-        main_pixmap = QPixmap()
-        
-        if MAIN_ICON:
-            try:
-                icon_bytes = base64.b64decode(MAIN_ICON)
-                main_pixmap.loadFromData(icon_bytes)
-                main_icon = QIcon(main_pixmap)
-                self.setWindowIcon(main_icon)
-            except Exception as e:
-                logging.error(f"메인 아이콘 로드 실패: {e}")
-                self.setWindowIcon(self.style().standardIcon(QStyle.StandardPixmap.SP_ComputerIcon))
-        else:
-            self.setWindowIcon(self.style().standardIcon(QStyle.StandardPixmap.SP_ComputerIcon))
-
-        main_layout = QVBoxLayout(self)
-        header_layout = QHBoxLayout()
-        icon_label = QLabel()
-        
-        if not main_pixmap.isNull():
-            pixmap_scaled = main_pixmap.scaled(64, 64, Qt.AspectRatioMode.KeepAspectRatio, Qt.TransformationMode.SmoothTransformation)
-            icon_label.setPixmap(pixmap_scaled)
-        
-        title_layout = QVBoxLayout()
-        title_label = QLabel(f"VideoBatchConverter {version}")
-        title_label.setStyleSheet("font-weight: bold; font-size: 14pt;")
-        info_label = QLabel("FFmpeg을 이용한 고효율 동영상 일괄 변환기")
-        
-        title_layout.addWidget(title_label)
-        title_layout.addWidget(info_label)
-        
-        header_layout.addWidget(icon_label)
-        header_layout.addLayout(title_layout)
-        main_layout.addLayout(header_layout)
-
-        feature_text = QTextEdit()
-        feature_text.setReadOnly(True)
-        feature_text.setHtml("""
-            <h3 style="margin-bottom: 5px;">🚀 주요 기능</h3>
-            <ul>
-                <li>폴더 기반 H.264 동영상 일괄 변환</li>
-                <li>NVIDIA(NVENC) GPU를 활용한 초고속 하드웨어 가속</li>
-                <li>여러 파일을 동시에 변환하는 병렬 처리 기능</li>
-                <li>Apple, YouTube 등 목적에 맞는 원클릭 프리셋 제공</li>
-                <li>오디오 Passthrough로 음질 손실 없는 빠른 변환 지원</li>
-                <li>FFmpeg 자동 다운로드 및 설정</li>
-            </ul>
-            <hr>
-            <p>이 프로그램은 오픈소스인 FFmpeg을 기반으로 제작되었습니다.</p>
-            <p>FFmpeg is a trademark of Fabrice Bellard.</p>
-        """)
-        main_layout.addWidget(feature_text)
-
-        button_layout = QHBoxLayout()
-        github_button = QPushButton("  GitHub 저장소 방문")
-        github_button.setIcon(self.style().standardIcon(QStyle.StandardPixmap.SP_FileDialogNewFolder))
-        github_button.clicked.connect(self.open_github)
-
-        button_box = QDialogButtonBox(QDialogButtonBox.StandardButton.Ok)
-        button_box.accepted.connect(self.accept)
-
-        button_layout.addWidget(github_button)
-        button_layout.addStretch()
-        button_layout.addWidget(button_box)
-        main_layout.addLayout(button_layout)
-        
-        self.setFixedSize(450, 400)
-
-    def open_github(self):
-        url = QUrl("https://github.com/deuxdoom/VideoBatchConverter/")
-        QDesktopServices.openUrl(url)
+        self.setWindowTitle('VideoBatchConverter 정보')
+        self.setWindowIcon(app_icon())
+        self.setMinimumWidth(490)
+        layout = QVBoxLayout(self)
+        layout.setContentsMargins(28, 28, 28, 24)
+        layout.addWidget(AboutContent(version, self))
+        buttons = QDialogButtonBox(QDialogButtonBox.StandardButton.Ok)
+        buttons.accepted.connect(self.accept)
+        layout.addWidget(buttons)
